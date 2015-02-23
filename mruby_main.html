@@ -179,7 +179,7 @@ ignore return value</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
-              <h3 id="string-manipulation">string manipulation</h3>
+              <h3 id="nil-value">nil value</h3>
 
             </div>
             
@@ -192,11 +192,11 @@ ignore return value</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
-              <p>create string value form c string</p>
+              <p>create ruby nil value</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  mrb_value ruby_string = mrb_str_new_cstr(mrb, <span class="hljs-string">"some string"</span>);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  mrb_value ruby_nil = mrb_nil_value();</pre></div></div>
             
         </li>
         
@@ -207,11 +207,11 @@ ignore return value</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
-              <p>pass string to method</p>
+              <p>pass nil value to method</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  mrb_value return_ruby_string = mrb_funcall(mrb, mrb_top_self(mrb), <span class="hljs-string">"one_arg_method"</span>, <span class="hljs-number">1</span>, ruby_string);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  mrb_value return_ruby_nil = mrb_funcall(mrb, mrb_top_self(mrb), <span class="hljs-string">"one_arg_method"</span>, <span class="hljs-number">1</span>, ruby_nil);</pre></div></div>
             
         </li>
         
@@ -222,11 +222,13 @@ ignore return value</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
-              <p>convert ruby string value to c string</p>
+              <p>check if return value is nill</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *return_c_string = RSTRING_PTR(return_ruby_string);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">if</span> (mrb_nil_p(return_ruby_nil)) {
+    <span class="hljs-built_in">printf</span>(<span class="hljs-string">"return_ruby_nil is nil!\n"</span>);
+  }</pre></div></div>
             
         </li>
         
@@ -237,11 +239,9 @@ ignore return value</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-13">&#182;</a>
               </div>
-              <p>print string value from c</p>
+              <h3 id="string-manipulation">string manipulation</h3>
 
             </div>
-            
-            <div class="content"><div class='highlight'><pre>  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"retrun_c_string: %s\n"</span>, return_c_string);</pre></div></div>
             
         </li>
         
@@ -252,9 +252,11 @@ ignore return value</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-14">&#182;</a>
               </div>
-              <h3 id="float-manipulation">float manipulation</h3>
+              <p>create string value form c string</p>
 
             </div>
+            
+            <div class="content"><div class='highlight'><pre>  mrb_value ruby_string = mrb_str_new_cstr(mrb, <span class="hljs-string">"some string"</span>);</pre></div></div>
             
         </li>
         
@@ -265,11 +267,11 @@ ignore return value</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-15">&#182;</a>
               </div>
-              <p>create float value from c float</p>
+              <p>pass string to method</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  mrb_value ruby_float = mrb_float_value(mrb, <span class="hljs-number">3.14</span>);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  mrb_value return_ruby_string = mrb_funcall(mrb, mrb_top_self(mrb), <span class="hljs-string">"one_arg_method"</span>, <span class="hljs-number">1</span>, ruby_string);</pre></div></div>
             
         </li>
         
@@ -280,11 +282,11 @@ ignore return value</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
-              <p>pass float to method</p>
+              <p>convert ruby string value to c string</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  mrb_value return_ruby_float = mrb_funcall(mrb, mrb_top_self(mrb), <span class="hljs-string">"one_arg_method"</span>, <span class="hljs-number">1</span>, ruby_float);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">const</span> <span class="hljs-keyword">char</span> *return_c_string = RSTRING_PTR(return_ruby_string);</pre></div></div>
             
         </li>
         
@@ -295,11 +297,11 @@ ignore return value</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-17">&#182;</a>
               </div>
-              <p>convert ruby float value to c float</p>
+              <p>print string value from c</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">float</span> return_c_float = mrb_float(return_ruby_float);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"retrun_c_string: %s\n"</span>, return_c_string);</pre></div></div>
             
         </li>
         
@@ -309,6 +311,64 @@ ignore return value</p>
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <h3 id="float-manipulation">float manipulation</h3>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p>create float value from c float</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  mrb_value ruby_float = mrb_float_value(mrb, <span class="hljs-number">3.14</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p>pass float to method</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  mrb_value return_ruby_float = mrb_funcall(mrb, mrb_top_self(mrb), <span class="hljs-string">"one_arg_method"</span>, <span class="hljs-number">1</span>, ruby_float);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p>convert ruby float value to c float</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">float</span> return_c_float = mrb_float(return_ruby_float);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
               </div>
               <p>print float value from c</p>
 
