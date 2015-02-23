@@ -6,13 +6,10 @@
 #include <mruby.h>
 #include <mruby/compile.h>
 
-// string conversion header
+// mruby additional headers
 #include <mruby/string.h>
-// number conversion header
 #include <mruby/numeric.h>
-// array header
 #include <mruby/array.h>
-// class header
 #include <mruby/class.h>
 #include <mruby/variable.h>
 
