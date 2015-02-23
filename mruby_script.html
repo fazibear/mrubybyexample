@@ -87,7 +87,31 @@
             </div>
             
             <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">def</span> </span>one_arg_method(arg)
+  puts <span class="hljs-string">"Invoke one_arg_method with: <span class="hljs-subst">#{arg.inspect}</span>"</span>
   arg
+<span class="hljs-keyword">end</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>define example class</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SomeClass</span></span>
+
+  <span class="hljs-keyword">attr_reader</span> <span class="hljs-symbol">:value</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> </span>initialize
+    puts <span class="hljs-string">'invoke initialize of SomeClass'</span>
+    <span class="hljs-variable">@value</span> = <span class="hljs-string">"some ruby value from initialize"</span>
+  <span class="hljs-keyword">end</span>
 <span class="hljs-keyword">end</span></pre></div></div>
             
         </li>
