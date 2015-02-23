@@ -12,6 +12,11 @@
 #include <mruby/numeric.h>
 // array header
 #include <mruby/array.h>
+// class header
+#include <mruby/class.h>
+#include <mruby/variable.h>
+
+
 
 int main(void)
 {
@@ -69,5 +74,35 @@ int main(void)
 
   // print float value from c
   printf("retrun_c_string: %g\n", return_c_float);
+
+  // ### methods
+
+  // check if not_existing_method exists ?
+  if(mrb_respond_to(mrb, mrb_top_self(mrb), mrb_intern_lit(mrb, "not_existing_method"))){
+    printf("not_existing_method exist!\n");
+  }else{
+    printf("not_existing_method not exist\n");
+  }
+
+  // check if invoke_me method exists ?
+  if(mrb_respond_to(mrb, mrb_top_self(mrb), mrb_intern_lit(mrb, "invoke_me"))){
+    printf("invoke_me method exist\n");
+  }else{
+    printf("invike_me method not exist!\n");
+  }
+
+  // ### classes
+
+  // get ruby class
+  mrb_value ruby_class = mrb_vm_const_get(mrb, mrb_intern_lit(mrb,"SomeClass"));
+
+  // create new instance of ruby class
+  mrb_value ruby_class_new = mrb_instance_new(mrb, ruby_class);
+
+  // invoke method on instance
+  mrb_value ruby_class_value = mrb_funcall(mrb, ruby_class_new, "value", 0);
+
+  // convert and print value
+  printf("ruby_class_value: %s\n", RSTRING_PTR(ruby_class_value));
 
 }

@@ -20,7 +20,6 @@ task :run do
 end
 
 task :default do
-  Rake::Task['generate'].execute
   Rake::Task['compile'].execute
   Rake::Task['run'].execute
 end
