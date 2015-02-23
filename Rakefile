@@ -5,6 +5,7 @@ end
 
 desc 'Publish to gh-pages'
 task :publish do
+  Rake::Task['generate'].execute
   sh "git subtree push --prefix docs origin gh-pages"
 end
 

@@ -29,6 +29,19 @@ int main(void)
   // ignore return value
   mrb_funcall(mrb, mrb_top_self(mrb), "invoke_me", 0);
 
+  // ### nil value
+
+  // create ruby nil value
+  mrb_value ruby_nil = mrb_nil_value();
+
+  // pass nil value to method
+  mrb_value return_ruby_nil = mrb_funcall(mrb, mrb_top_self(mrb), "one_arg_method", 1, ruby_nil);
+
+  // check if return value is nill
+  if (mrb_nil_p(return_ruby_nil)) {
+    printf("return_ruby_nil is nil!\n");
+  }
+
   // ### string manipulation
 
   // create string value form c string
