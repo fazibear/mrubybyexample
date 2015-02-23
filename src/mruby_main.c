@@ -13,8 +13,6 @@
 #include <mruby/class.h>
 #include <mruby/variable.h>
 
-
-
 int main(void)
 {
 
