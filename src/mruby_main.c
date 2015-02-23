@@ -41,7 +41,7 @@ int main(void)
   const char *return_c_string = RSTRING_PTR(return_ruby_string);
 
   // print string value from c
-  printf("retrun_c_string: %s\n", return_c_string );
+  printf("retrun_c_string: %s\n", return_c_string);
 
   // ### float manipulation
 
@@ -55,6 +55,6 @@ int main(void)
   float return_c_float = mrb_float(return_ruby_float);
 
   // print float value from c
-  printf("retrun_c_string: %g\n", return_c_float );
+  printf("retrun_c_string: %g\n", return_c_float);
 
 }
