@@ -286,7 +286,7 @@ ignore return value</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
-              <h3 id="float-manipulation">float manipulation</h3>
+              <h3 id="fixnum-manipulation">fixnum manipulation</h3>
 
             </div>
             
@@ -299,11 +299,11 @@ ignore return value</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-17">&#182;</a>
               </div>
-              <p>create float value from c float</p>
+              <p>create fixnum value from c int</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  mrb_value ruby_float = mrb_float_value(mrb, <span class="hljs-number">3.14</span>);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  mrb_value ruby_fixnum = mrb_fixnum_value(<span class="hljs-number">7</span>);</pre></div></div>
             
         </li>
         
@@ -314,11 +314,11 @@ ignore return value</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-18">&#182;</a>
               </div>
-              <p>pass float to method</p>
+              <p>pass fixnum value to method</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  mrb_value return_ruby_float = mrb_funcall(mrb, mrb_top_self(mrb), <span class="hljs-string">"one_arg_method"</span>, <span class="hljs-number">1</span>, ruby_float);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  mrb_value return_ruby_fixnum = mrb_funcall(mrb, mrb_top_self(mrb), <span class="hljs-string">"one_arg_method"</span>, <span class="hljs-number">1</span>, ruby_fixnum);</pre></div></div>
             
         </li>
         
@@ -329,11 +329,11 @@ ignore return value</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-19">&#182;</a>
               </div>
-              <p>convert ruby float value to c float</p>
+              <p>convert fixnum to int</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">float</span> return_c_float = mrb_float(return_ruby_float);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">int</span> return_c_int = mrb_fixnum(return_ruby_fixnum);</pre></div></div>
             
         </li>
         
@@ -344,11 +344,11 @@ ignore return value</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-20">&#182;</a>
               </div>
-              <p>print float value from c</p>
+              <p>print fixnum value from c</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"retrun_c_string: %g\n"</span>, return_c_float);</pre></div></div>
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"retrun_c_fixnum: %d\n"</span>, return_c_int);</pre></div></div>
             
         </li>
         
@@ -359,7 +359,7 @@ ignore return value</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-21">&#182;</a>
               </div>
-              <h3 id="methods">methods</h3>
+              <h3 id="float-manipulation">float manipulation</h3>
 
             </div>
             
@@ -371,6 +371,79 @@ ignore return value</p>
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <p>create float value from c float</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  mrb_value ruby_float = mrb_float_value(mrb, <span class="hljs-number">3.14</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p>pass float to method</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  mrb_value return_ruby_float = mrb_funcall(mrb, mrb_top_self(mrb), <span class="hljs-string">"one_arg_method"</span>, <span class="hljs-number">1</span>, ruby_float);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>convert ruby float value to c float</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">float</span> return_c_float = mrb_float(return_ruby_float);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <p>print float value from c</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-built_in">printf</span>(<span class="hljs-string">"retrun_c_string: %g\n"</span>, return_c_float);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <h3 id="methods">methods</h3>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-27">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-27">&#182;</a>
               </div>
               <p>check if not_existing_method exists ?</p>
 
@@ -385,11 +458,11 @@ ignore return value</p>
         </li>
         
         
-        <li id="section-23">
+        <li id="section-28">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-23">&#182;</a>
+                <a class="pilcrow" href="#section-28">&#182;</a>
               </div>
               <p>check if invoke_me method exists ?</p>
 
@@ -404,11 +477,11 @@ ignore return value</p>
         </li>
         
         
-        <li id="section-24">
+        <li id="section-29">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-24">&#182;</a>
+                <a class="pilcrow" href="#section-29">&#182;</a>
               </div>
               <h3 id="classes">classes</h3>
 
@@ -417,11 +490,11 @@ ignore return value</p>
         </li>
         
         
-        <li id="section-25">
+        <li id="section-30">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-25">&#182;</a>
+                <a class="pilcrow" href="#section-30">&#182;</a>
               </div>
               <p>get ruby class</p>
 
@@ -432,11 +505,11 @@ ignore return value</p>
         </li>
         
         
-        <li id="section-26">
+        <li id="section-31">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-26">&#182;</a>
+                <a class="pilcrow" href="#section-31">&#182;</a>
               </div>
               <p>create new instance of ruby class</p>
 
@@ -447,11 +520,11 @@ ignore return value</p>
         </li>
         
         
-        <li id="section-27">
+        <li id="section-32">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-27">&#182;</a>
+                <a class="pilcrow" href="#section-32">&#182;</a>
               </div>
               <p>invoke method on instance</p>
 
@@ -462,11 +535,11 @@ ignore return value</p>
         </li>
         
         
-        <li id="section-28">
+        <li id="section-33">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-28">&#182;</a>
+                <a class="pilcrow" href="#section-33">&#182;</a>
               </div>
               <p>convert and print value</p>
 

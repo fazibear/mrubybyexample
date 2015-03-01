@@ -56,6 +56,20 @@ int main(void)
   // print string value from c
   printf("retrun_c_string: %s\n", return_c_string);
 
+  // ### fixnum manipulation
+
+  // create fixnum value from c int
+  mrb_value ruby_fixnum = mrb_fixnum_value(7);
+
+  // pass fixnum value to method
+  mrb_value return_ruby_fixnum = mrb_funcall(mrb, mrb_top_self(mrb), "one_arg_method", 1, ruby_fixnum);
+
+  // convert fixnum to int
+  int return_c_int = mrb_fixnum(return_ruby_fixnum);
+
+  // print fixnum value from c
+  printf("retrun_c_fixnum: %d\n", return_c_int);
+
   // ### float manipulation
 
   // create float value from c float
