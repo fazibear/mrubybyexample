@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "generate": "./node_modules/docco/bin/docco src/*"
+    "generate": "./node_modules/docco/bin/docco src/*; cp docs/mruby_main.html docs/index.html"
   },
   "repository": {
     "type": "git",
