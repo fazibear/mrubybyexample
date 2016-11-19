@@ -1,0 +1,26 @@
+{
+  "name": "mrubybyexample",
+  "version": "1.0.0",
+  "description": "http://fazibear.github.io/mrubybyexample/mruby_main.html",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate": "./node_modules/docco/bin/docco src/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fazibear/mrubybyexample.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fazibear/mrubybyexample/issues"
+  },
+  "homepage": "https://github.com/fazibear/mrubybyexample#readme",
+  "dependencies": {
+    "docco" : "0"
+  }
+}
